@@ -1,15 +1,26 @@
 import React, { useState } from "react";
 import Item from "./Item";
+import { ItemArrTypes } from "../App";
+
+
+type ComponentProp = {
+    initialItems: ItemArrTypes[],
+    handleChange: (id: number) => void,
+    deleteItem: (id: number) => void,
+    handleClear:() => void
+
+
+}
 
 export default function PackingList({
   initialItems,
   handleChange,
   deleteItem,
   handleClear,
-}) {
-  const [sortBy, setSortBy] = useState("input");
+}: ComponentProp) {
+  const [sortBy, setSortBy] = useState<string>("input");
 
-  let sortedArr;
+  let sortedArr: ItemArrTypes[] = [];
 
   if (sortBy === "input") sortedArr = initialItems;
 

@@ -1,6 +1,13 @@
 import React from "react";
+import { ItemArrTypes } from "../App";
 
-export default function Stats({ initialItems }) {
+type ComponentProp = {
+    initialItems: ItemArrTypes[];
+}
+
+
+
+export default function Stats({ initialItems }: ComponentProp) {
   const listItems = initialItems.length;
   const packedItems = initialItems.filter((obj) => obj.packed).length;
   const percentagePacked = Math.round((packedItems / listItems) * 100);

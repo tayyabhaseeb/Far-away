@@ -1,6 +1,16 @@
 import React from "react";
 // import { useState } from "react";
-export default function Item({ obj, handleChange, deleteItem }) {
+import { ItemArrTypes } from "../App";
+
+
+type ComponentProp = {
+    obj: ItemArrTypes,
+    handleChange: (id: number) => void,
+    deleteItem: (id: number) => void,
+
+}
+
+export default function Item({ obj, handleChange, deleteItem }: ComponentProp) {
   return (
     <li>
       <input
@@ -9,7 +19,7 @@ export default function Item({ obj, handleChange, deleteItem }) {
         onChange={() => handleChange(obj.id)}
         name={obj.description}
         id={obj.description}
-        value={obj.packed}
+        value={obj.packed.toString()}
       />
       <span style={obj.packed ? { textDecoration: "line-through" } : {}}>
         {obj.quantity} {obj.description}
@@ -18,5 +28,3 @@ export default function Item({ obj, handleChange, deleteItem }) {
     </li>
   );
 }
-
-// style={  obj.packed ? { textDecoration: "line-through" } : {} }
