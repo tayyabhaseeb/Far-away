@@ -39,6 +39,7 @@ const App = () => {
       "Are you sure you want to delete them all"
     );
 
+
     confirmed && setInitialItems([]);
   }
 
