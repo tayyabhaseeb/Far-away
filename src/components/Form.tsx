@@ -9,7 +9,6 @@ type ComponentProp = {
 export default function Form({ setInitialItems }: ComponentProp) {
   const [description, setDescription] = useState<string>("");
   const [select, setSelect] = useState<number>(1);
-  // const [initialItems, setInitialItems] = useState([]);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -52,7 +51,6 @@ export default function Form({ setInitialItems }: ComponentProp) {
         placeholder="items..."
         value={description}
         onChange={(e) => {
-          // console.log(e.target.value);
           setDescription(e.target.value);
         }}
       />

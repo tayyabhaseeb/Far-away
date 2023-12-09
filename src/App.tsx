@@ -4,8 +4,6 @@ import Form from "./components/Form";
 import PackingList from "./components/PackingList";
 import Stats from "./components/Stats";
 
-// { id: 1, description: "Passports", quantity: 2, packed: false },
-
 export type ItemArrTypes = {
   id: number;
   description: string;

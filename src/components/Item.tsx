@@ -1,5 +1,3 @@
-import React from "react";
-// import { useState } from "react";
 import { ItemArrTypes } from "../App";
 
 type ComponentProp = {
@@ -13,7 +11,6 @@ export default function Item({ obj, handleChange, deleteItem }: ComponentProp) {
     <li>
       <input
         type="checkbox"
-        // onChange={handle}
         onChange={() => handleChange(obj.id)}
         name={obj.description}
         id={obj.description}

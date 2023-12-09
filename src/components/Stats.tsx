@@ -1,4 +1,3 @@
-import React from "react";
 import { ItemArrTypes } from "../App";
 
 type ComponentProp = {
