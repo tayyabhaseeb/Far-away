@@ -4,4 +4,4 @@ If you're preparing for a vacation, business trip, or any adventure, Far Away Ap
 
 Made using React, Typescript and CSS
 
-hosted: https://packing-list-app.netlify.app/
+[View it live here](https://packing-list-app.netlify.app/)
