@@ -1,25 +1,22 @@
-import React, { useState } from 'react'
-import Logo from './components/Logo'
-import Form from './components/Form';
-import PackingList from './components/PackingList';
-import Stats from './components/Stats';
+import React, { useState } from "react";
+import Logo from "./components/Logo";
+import Form from "./components/Form";
+import PackingList from "./components/PackingList";
+import Stats from "./components/Stats";
 
 // { id: 1, description: "Passports", quantity: 2, packed: false },
 
 export type ItemArrTypes = {
-  id: number,
-  description: string,
-  quantity: number,
-  packed: boolean
-
-}
-
-
+  id: number;
+  description: string;
+  quantity: number;
+  packed: boolean;
+};
 
 const App = () => {
   const [initialItems, setInitialItems] = useState<ItemArrTypes[]>([]);
 
-  function handleChange(id:number) {
+  function handleChange(id: number) {
     setInitialItems((prev) => {
       return prev.map((obj) => {
         return obj.id === id ? { ...obj, packed: !obj.packed } : obj;
@@ -27,7 +24,7 @@ const App = () => {
     });
   }
 
-  function deleteItem(id:number) {
+  function deleteItem(id: number) {
     setInitialItems((prev) => {
       return prev.filter((obj) => {
         return obj.id !== id;
@@ -36,15 +33,14 @@ const App = () => {
   }
   function handleClear() {
     const confirmed = window.confirm(
-      "Are you sure you want to delete them all"
+      "Are you sure you want to delete them all",
     );
-
 
     confirmed && setInitialItems([]);
   }
 
   return (
-    <div className='app'>
+    <div className="app">
       <Logo />
       <Form setInitialItems={setInitialItems} />
       <PackingList
@@ -54,9 +50,8 @@ const App = () => {
         handleClear={handleClear}
       />
       <Stats initialItems={initialItems} />
-     
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

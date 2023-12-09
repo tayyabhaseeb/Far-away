@@ -2,15 +2,12 @@ import React, { useState } from "react";
 import Item from "./Item";
 import { ItemArrTypes } from "../App";
 
-
 type ComponentProp = {
-    initialItems: ItemArrTypes[],
-    handleChange: (id: number) => void,
-    deleteItem: (id: number) => void,
-    handleClear:() => void
-
-
-}
+  initialItems: ItemArrTypes[];
+  handleChange: (id: number) => void;
+  deleteItem: (id: number) => void;
+  handleClear: () => void;
+};
 
 export default function PackingList({
   initialItems,

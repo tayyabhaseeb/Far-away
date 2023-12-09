@@ -2,10 +2,8 @@ import React from "react";
 import { ItemArrTypes } from "../App";
 
 type ComponentProp = {
-    initialItems: ItemArrTypes[];
-}
-
-
+  initialItems: ItemArrTypes[];
+};
 
 export default function Stats({ initialItems }: ComponentProp) {
   const listItems = initialItems.length;

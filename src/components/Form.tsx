@@ -2,18 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { ItemArrTypes } from "../App";
 
-
-
 type ComponentProp = {
-    setInitialItems :React.Dispatch<React.SetStateAction<ItemArrTypes[]>>,
-}
+  setInitialItems: React.Dispatch<React.SetStateAction<ItemArrTypes[]>>;
+};
 
 export default function Form({ setInitialItems }: ComponentProp) {
   const [description, setDescription] = useState<string>("");
   const [select, setSelect] = useState<number>(1);
   // const [initialItems, setInitialItems] = useState([]);
 
-  function handleSubmit(e: React. FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     if (!description) {

@@ -2,13 +2,11 @@ import React from "react";
 // import { useState } from "react";
 import { ItemArrTypes } from "../App";
 
-
 type ComponentProp = {
-    obj: ItemArrTypes,
-    handleChange: (id: number) => void,
-    deleteItem: (id: number) => void,
-
-}
+  obj: ItemArrTypes;
+  handleChange: (id: number) => void;
+  deleteItem: (id: number) => void;
+};
 
 export default function Item({ obj, handleChange, deleteItem }: ComponentProp) {
   return (
