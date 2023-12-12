@@ -37,7 +37,6 @@ test("when we click the button the item is added to the list of array", () => {
   });
 
   act(() => {
-    // userEvent.keyboard("socks");
     userEvent.type(input, "socks");
   });
 
@@ -47,7 +46,6 @@ test("when we click the button the item is added to the list of array", () => {
   });
 
   expect(mock).toHaveBeenCalled();
-  // ? there is some things that need to be fixed
 });
 
 test("check when we click add button does that input goes empty and select goes to 1", () => {
