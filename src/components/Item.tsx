@@ -15,6 +15,7 @@ export default function Item({ obj, handleChange, deleteItem }: ComponentProp) {
         name={obj.description}
         id={obj.description}
         value={obj.packed.toString()}
+        data-testid="checkBtn"
       />
       <span style={obj.packed ? { textDecoration: "line-through" } : {}}>
         {obj.quantity} {obj.description}

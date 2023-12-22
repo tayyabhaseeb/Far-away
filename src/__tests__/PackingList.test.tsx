@@ -1,5 +1,5 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import PackingList from "../components/PackingList";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
@@ -19,7 +19,7 @@ function componentTest() {
       handleChange={handleChangeMock}
       deleteItem={deleteItemMock}
       handleClear={handleClearMock}
-    />
+    />,
   );
 
   return {
@@ -52,6 +52,7 @@ test("when we click deleteAll button will all items will be removed", () => {
   const { handleClearMock } = componentTest();
 
   const deleteAllBtn = screen.getByRole("button", { name: /delete all/i });
+
   act(() => {
     userEvent.click(deleteAllBtn);
   });

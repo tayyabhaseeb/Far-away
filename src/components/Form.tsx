@@ -37,6 +37,7 @@ export default function Form({ setInitialItems }: ComponentProp) {
       <select
         value={select}
         onChange={(e) => setSelect(Number(e.target.value))}
+        data-testid="select"
       >
         {Array.from({ length: 20 }, (_, index) => index + 1).map((num) => {
           return (
@@ -54,7 +55,7 @@ export default function Form({ setInitialItems }: ComponentProp) {
           setDescription(e.target.value);
         }}
       />
-      <button>Add</button>
+      <button data-testid="addBtn">Add</button>
     </form>
   );
 }

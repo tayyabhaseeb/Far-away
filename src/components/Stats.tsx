@@ -12,7 +12,9 @@ export default function Stats({ initialItems }: ComponentProp) {
   if (!initialItems.length) {
     return (
       <div className="stats">
-        <em>Start adding some items to your packing list 🚀</em>
+        <em data-testid="footerMessage">
+          Start adding some items to your packing list 🚀
+        </em>
       </div>
     );
   }
@@ -21,10 +23,10 @@ export default function Stats({ initialItems }: ComponentProp) {
     <footer className="stats">
       {percentagePacked === 100 ? (
         <p>
-          <em> All Packed ready to go</em> 🚁
+          <em data-testid="footerMessage"> All Packed ready to go</em> 🚁
         </p>
       ) : (
-        <em>
+        <em data-testid="footerMessage">
           💼 You have {listItems} items on your list and you have packed{" "}
           {packedItems} items {listItems ? `${percentagePacked} %` : `0 %`}
         </em>

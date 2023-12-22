@@ -9,7 +9,7 @@ test("check the initial message of the component", () => {
   render(<Stats initialItems={arr} />);
 
   const messageWithItem = screen.getByText(
-    /Start adding some items to your packing list 🚀/i
+    /Start adding some items to your packing list 🚀/i,
   );
 
   expect(messageWithItem).toBeInTheDocument();
@@ -21,7 +21,7 @@ test("check the message of the component", () => {
   render(<Stats initialItems={arr} />);
 
   const messageWithItem = screen.getByText(
-    /💼 you have 1 items on your list and you have packed 0 items 0 %/i
+    /💼 you have 1 items on your list and you have packed 0 items 0 %/i,
   );
 
   expect(messageWithItem).toBeInTheDocument();
