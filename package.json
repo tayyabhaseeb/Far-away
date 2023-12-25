@@ -47,5 +47,8 @@
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     }
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.1"
   }
 }
