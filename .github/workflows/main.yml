@@ -3,38 +3,50 @@ name: Deploy to Netlify
 on:
   push:
     branches:
-      - main # Trigger the workflow on push to the main branch
+      - main
   pull_request:
     branches:
-      - main # Trigger the workflow on PRs to the main branch
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        # Brings your code from repository to the GitHub Actions runner
+      # 1️⃣ Pull your latest code
+      - name: Checkout code
+        uses: actions/checkout@v4
 
+      # 2️⃣ Set up Node.js 18
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: "18"
 
+      # 3️⃣ Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Lint (ignore errors)
-        run: |
-          npm run lint || echo "⚠️ Lint failed, but continuing build and deploy..."
+      # 4️⃣ Lint your code (optional)
+      - name: Lint
+        run: npm run lint
 
-      - name: Build
+      # 5️⃣ Build your React app
+      - name: Build project
         run: npm run build
 
+      # 6️⃣ Deploy to Netlify
       - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
-        env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        uses: nwtgck/actions-netlify@v2
         with:
-          args: deploy --dir=build --prod
+          publish-dir: "./build"
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Automated deploy from GitHub Actions 🚀"
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          enable-commit-status: true
+          overwrites-publish: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
