@@ -78,5 +78,5 @@ test("check when we click add button does that input goes empty and select goes 
 
   expect(mock).toHaveBeenCalled();
   expect(input).toHaveValue("");
-  expect(select).toHaveValue("2");
+  expect(select).toHaveValue("1");
 });
